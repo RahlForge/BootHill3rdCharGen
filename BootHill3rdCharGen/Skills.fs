@@ -4,7 +4,7 @@ open Attributes
 open Microsoft.FSharp.Reflection
 
 type WeaponSkills = Archery|Blades|Brawling|Pistol|Rifle
-let weaponSkills = FSharpType.GetUnionCases typeof<WeaponSkills>
+let weaponSkills = [Archery;Blades;Brawling;Pistol;Rifle]
 
 let getWeaponSkillName weaponSkill = 
     match weaponSkill with
@@ -21,6 +21,13 @@ type WorkSkills =
     |PublicSpeaking|Railroading|Riding|Roping|Saddlery|Scouting|Sheepherding|Silversmithing|Stealth|Surveying|Survival
     |Swimming|Tactics|Tailor|Teamster|Telegraph|Thespian|Throwing|Tracking|Trading|Trapping|Veterinarian|Wainwright
     |Whip|Wrangling|Wordsmithing
+
+let workSkillsPage1 = [Accounting;Artillerist;Artist;Assaying;Bartending;Blacksmithing;Bureaucracy;Carpentry;Chemistry;CivilEngineering;Cooking;CowHandling]
+let workSkillsPage2 = [Dentistry;Entertainer;Explosives;Farming;FastDraw;Gambling;Gunsmithing;IndianContact;Law;Leadership;Linguistics;Literacy]
+let workSkillsPage3 = [Locksmithing;Medicine;Orienteering;Photography;PocketPicking;Preaching;Prospecting;PublicSpeaking;Railroading;Riding;Roping;Saddlery]
+let workSkillsPage4 = [Scouting;Sheepherding;Silversmithing;Stealth;Surveying;Survival;Swimming;Tactics;Tailor;Teamster;Telegraph;Thespian]
+let workSkillsPage5 = [Throwing;Tracking;Trading;Trapping;Veterinarian;Wainwright;Whip;Wrangling;Wordsmithing]
+let workSkills = [workSkillsPage1;workSkillsPage2;workSkillsPage3;workSkillsPage4;workSkillsPage5]
     
 let getWorkSkillName workSkill = 
     match workSkill with
@@ -82,9 +89,10 @@ let getWorkSkillName workSkill =
     |Wrangling -> "Wrangling"
     |_ -> "Wordsmithing"
 
-//type Skills = WeaponSkills of WeaponSkills|WorkSkills of WorkSkills
-
-//let printWorkSkills = fun() -> weaponSkills |> List.iter (fun s -> printfn "%s" s.Name)
+let printWorkSkills = fun() -> workSkills |> List.iter (fun ws -> 
+    ws |> List.iter (fun s -> 
+        let workSkillName = getWorkSkillName s 
+        printfn "%s" workSkillName))    
 
 let initSkills total =
     match total with

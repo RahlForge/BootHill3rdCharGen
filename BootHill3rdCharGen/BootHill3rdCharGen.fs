@@ -18,7 +18,9 @@ let printCharSheet = fun() ->
     printHeader "Skills"   
     printfn "Attribute Total: %i, Number of Skills: %i" theTotal (initSkills theTotal)
 
-let printGoodbye = fun() -> printfn "\nGoodbye!"
+let printGoodbye = fun() -> 
+    printfn "\nGoodbye!"
+    Console.ReadKey() |> ignore
 
 let rec rerun = fun() ->
     printCharSheet()
@@ -28,9 +30,11 @@ let rec rerun = fun() ->
     |"y"|"Y" -> 
         Console.Clear()
         rerun()
-    |_ -> printGoodbye()
+    |_ -> ignore
 
 [<EntryPoint>]
 let main argv =
-    rerun()
+    rerun()    
+    printWorkSkills()
+    printGoodbye()
     0 // return an integer exit code
