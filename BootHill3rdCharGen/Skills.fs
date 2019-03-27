@@ -2,27 +2,72 @@
 
 open Utils
 
-type WeaponSkills = Archery|Blades|Brawling|Pistol|Rifle
+type BHSkill = { Name:string; Description:string }
 
-let weaponSkills = [Archery;Blades;Brawling;Pistol;Rifle]
+let newSkill name desc = { Name=name; Description=desc }
 
-let getWeaponSkill i = weaponSkills.Item(i)
-
-let getWeaponSkillName weaponSkill = 
-    match weaponSkill with
-    |Archery -> "Archery"
-    |Blades -> "Blades"
-    |Brawling -> "Brawling"
-    |Pistol -> "Pistol"
-    |_ -> "Rifle"
-
-type WorkSkills = 
-    Accounting|Artillerist|Artist|Assaying|Bartending|Blacksmithing|Bureaucracy|Carpentry|Chemistry|CivilEngineering
-    |Cooking|CowHandling|Dentistry|Entertainer|Explosives|Farming|FastDraw|Gambling|Gunsmithing|IndianContact|Law
-    |Leadership|Linguistics|Literacy|Locksmithing|Medicine|Orienteering|Photography|PocketPicking|Preaching|Prospecting
-    |PublicSpeaking|Railroading|Riding|Roping|Saddlery|Scouting|Sheepherding|Silversmithing|Stealth|Surveying|Survival
-    |Swimming|Tactics|Tailor|Teamster|Telegraph|Thespian|Throwing|Tracking|Trading|Trapping|Veterinarian|Wainwright
-    |Whip|Wrangling|Wordsmithing
+let Accounting = newSkill "Accounting" ""
+let Archery = newSkill "Archery" ""
+let Artillerist = newSkill "Artillerist" ""
+let Artist = newSkill "Artist" ""
+let Assaying = newSkill "Assaying" ""
+let Bartending = newSkill "Bartending" ""
+let Blacksmithing = newSkill "Blacksmithing" ""
+let Blades = newSkill "Blades" ""
+let Brawling = newSkill "Brawling" ""
+let Bureaucracy = newSkill "Bureaucracy" ""
+let Carpentry = newSkill "Carpentry" ""
+let Chemistry = newSkill "Chemistry" ""
+let CivilEngineering = newSkill "Civil Engineering" ""
+let Cooking = newSkill "Cooking" ""
+let CowHandling = newSkill "CowHandling" ""
+let Dentistry = newSkill "Dentistry" ""
+let Entertainer = newSkill "Entertainer" ""
+let Explosives = newSkill "Explosives" ""
+let Farming = newSkill "Farming" ""
+let FastDraw = newSkill "FastDraw" ""
+let Gambling = newSkill "Gambling" ""
+let Gunsmithing = newSkill "Gunsmithing" ""
+let IndianContact = newSkill "Indian Contact" ""
+let Law = newSkill "Law" ""    
+let Leadership = newSkill "Leadership" ""
+let Linguistics = newSkill "Linguistics" ""
+let Literacy = newSkill "Literacy" ""
+let Locksmithing = newSkill "Locksmithing" ""
+let Medicine = newSkill "Medicine" ""
+let Orienteering = newSkill "Orienteering" ""
+let Photography = newSkill "Photography" ""
+let Pistol = newSkill "Pistol" ""
+let PocketPicking = newSkill "Pocket Picking" ""
+let Preaching = newSkill "Preaching" ""
+let Prospecting = newSkill "Prospecting" ""
+let PublicSpeaking = newSkill "Public Speaking" ""
+let Railroading = newSkill "Railroading" ""
+let Riding = newSkill "Riding" ""
+let Rifle = newSkill "Rifle" ""
+let Roping = newSkill "Roping" ""
+let Saddlery = newSkill "Saddlery" ""
+let Scouting = newSkill "Scouting" ""
+let Sheepherding = newSkill "Sheepherding" ""
+let Silversmithing = newSkill "Silversmithing" ""
+let Stealth = newSkill "Stealth" ""
+let Surveying = newSkill "Surveying" ""
+let Survival = newSkill "Survival" ""
+let Swimming = newSkill "Swimming" ""
+let Tactics = newSkill "Tactics" ""
+let Tailor = newSkill "Tailor" ""
+let Teamster = newSkill "Teamster" ""
+let Telegraph = newSkill "Telegraph" ""
+let Thespian = newSkill "Thespian" ""
+let Throwing = newSkill "Throwing" ""
+let Tracking = newSkill "Tracking" ""
+let Trading = newSkill "Trading" ""
+let Trapping = newSkill "Trapping" ""
+let Veterinarian = newSkill "Veterinarian" ""
+let Wainwright = newSkill "Wainwright" ""
+let Whip = newSkill "Whip" ""
+let Wrangling = newSkill "Wrangling" ""
+let Wordsmithing = newSkill "Wordsmithing" ""
 
 let workSkills = 
     [Accounting;Artillerist;Artist;Assaying;Bartending;Blacksmithing;Bureaucracy;Carpentry;Chemistry;CivilEngineering;Cooking;CowHandling;
@@ -31,82 +76,14 @@ let workSkills =
     Scouting;Sheepherding;Silversmithing;Stealth;Surveying;Survival;Swimming;Tactics;Tailor;Teamster;Telegraph;Thespian;
     Throwing;Tracking;Trading;Trapping;Veterinarian;Wainwright;Whip;Wrangling;Wordsmithing]
 
-let getWorkSkill i = workSkills.Item(i)    
+let weaponSkills = [Archery;Blades;Brawling;Pistol;Rifle]
 
-let getWorkSkillName workSkill = 
-    match workSkill with
-    |Accounting -> "Accounting"
-    |Artillerist -> "Artillerist"
-    |Artist -> "Artist"
-    |Assaying -> "Assaying"
-    |Bartending -> "Bartending"
-    |Blacksmithing -> "Blacksmithing"
-    |Bureaucracy -> "Bureaucracy"
-    |Carpentry -> "Carpentry"
-    |Chemistry -> "Chemistry"
-    |CivilEngineering -> "Civil Engineering"
-    |Cooking -> "Cooking"
-    |CowHandling -> "Cow Handling"
-    |Dentistry -> "Dentistry"
-    |Entertainer -> "Entertainer"
-    |Explosives -> "Explosives"
-    |Farming -> "Farming"
-    |FastDraw -> "Fast Draw"
-    |Gambling -> "Gambling"
-    |Gunsmithing -> "Gunsmithing"
-    |IndianContact -> "Indian Contact"
-    |Law -> "Law"
-    |Leadership -> "Leadership"
-    |Linguistics -> "Linguistics"
-    |Literacy -> "Literacy"
-    |Locksmithing -> "Locksmithing"
-    |Medicine -> "Medicine"
-    |Orienteering -> "Orienteering"
-    |Photography -> "Photography"
-    |PocketPicking -> "Pocket Picking"
-    |Preaching -> "Preaching"
-    |Prospecting -> "Prospecting"
-    |PublicSpeaking -> "Public Speaking"
-    |Railroading -> "Railroading"
-    |Riding -> "Riding"
-    |Roping -> "Roping"
-    |Saddlery -> "Saddlery"
-    |Scouting -> "Scouting"
-    |Sheepherding -> "Sheepherding"
-    |Silversmithing -> "Silversmithing"
-    |Stealth -> "Stealth"
-    |Surveying -> "Surveying"
-    |Survival -> "Survival"
-    |Swimming -> "Swimming"
-    |Tactics -> "Tactics"
-    |Tailor -> "Tailor"
-    |Teamster -> "Teamster"
-    |Telegraph -> "Telegraph"
-    |Thespian -> "Thespian"
-    |Throwing -> "Throwing"
-    |Tracking -> "Tracking"
-    |Trading -> "Trading"
-    |Trapping -> "Trapping"
-    |Veterinarian -> "Veterinarian"
-    |Wainwright -> "Wainwright"
-    |Whip -> "Whip"
-    |Wrangling -> "Wrangling"
-    |_ -> "Wordsmithing"
+let printSkillName skill = printfn "%s" skill.Name
 
-let printWorkSkills = fun() -> workSkills |> List.iteri (fun i ws ->
-    let workSkillName = getWorkSkillName ws 
-    printfn "%i - %s" (refIndex i) workSkillName)
+let printSkillList skillList = skillList |> List.iteri (fun i s -> printfn "%i - %s" (refIndex i) s.Name)
 
 let initSkills total =
     match total with
     |total when total >= 27 && total <= 40 -> 10
     |total when total >= 41 && total <= 62 -> 8
     |_ -> 6
-
-//type BHSkill = WorkSkill of WorkSkills|WeaponSkill of WeaponSkills
-
-// let printBHSkillName skill = 
-//     match skill with
-//     | :? WorkSkills as work -> printWorkSkillName work
-//     | :? WeaponSkills as weapon -> printWeaponSkillName weapon
-//     |_ -> ignore

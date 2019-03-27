@@ -35,6 +35,9 @@ let rec rerun = fun() ->
 [<EntryPoint>]
 let main argv =
     rerun()    
-    printWorkSkills()
+    printHeader "Work Skills"
+    printSkillList workSkills
+    printHeader "Weapon Skills"
+    printSkillList weaponSkills
     printGoodbye()
     0 // return an integer exit code

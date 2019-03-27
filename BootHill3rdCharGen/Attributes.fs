@@ -2,7 +2,7 @@
 
 open Dice
 
-type Attribute = { Name:string; Score:int }
+type BHAttr = { Name:string; Score:int }
 
 let newAttr name score = { Name=name; Score=score }
 
