@@ -4,6 +4,7 @@
     <TargetFramework>net461</TargetFramework>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Include="Utils.fs" />
     <Compile Include="Dice.fs" />
     <Compile Include="Attributes.fs" />
     <None Include="App.config" />

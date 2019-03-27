@@ -13,7 +13,7 @@ let printCharSheet = fun() ->
     printSeparator()
     printHeader "Attributes"
     let attributes = attrList()
-    attributes |> List.iter (fun a -> printAttr a)
+    attributes |> List.iter printAttr
     let theTotal = attrTotal attributes
     printHeader "Skills"   
     printfn "Attribute Total: %i, Number of Skills: %i" theTotal (initSkills theTotal)
@@ -30,7 +30,7 @@ let rec rerun = fun() ->
     |"y"|"Y" -> 
         Console.Clear()
         rerun()
-    |_ -> ignore
+    |_ -> printfn "\nOk, let's get your skills!"
 
 [<EntryPoint>]
 let main argv =

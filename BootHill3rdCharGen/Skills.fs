@@ -1,10 +1,12 @@
 ﻿module Skills
 
-open Attributes
-open Microsoft.FSharp.Reflection
+open Utils
 
 type WeaponSkills = Archery|Blades|Brawling|Pistol|Rifle
+
 let weaponSkills = [Archery;Blades;Brawling;Pistol;Rifle]
+
+let getWeaponSkill i = weaponSkills.Item(i)
 
 let getWeaponSkillName weaponSkill = 
     match weaponSkill with
@@ -22,13 +24,15 @@ type WorkSkills =
     |Swimming|Tactics|Tailor|Teamster|Telegraph|Thespian|Throwing|Tracking|Trading|Trapping|Veterinarian|Wainwright
     |Whip|Wrangling|Wordsmithing
 
-let workSkillsPage1 = [Accounting;Artillerist;Artist;Assaying;Bartending;Blacksmithing;Bureaucracy;Carpentry;Chemistry;CivilEngineering;Cooking;CowHandling]
-let workSkillsPage2 = [Dentistry;Entertainer;Explosives;Farming;FastDraw;Gambling;Gunsmithing;IndianContact;Law;Leadership;Linguistics;Literacy]
-let workSkillsPage3 = [Locksmithing;Medicine;Orienteering;Photography;PocketPicking;Preaching;Prospecting;PublicSpeaking;Railroading;Riding;Roping;Saddlery]
-let workSkillsPage4 = [Scouting;Sheepherding;Silversmithing;Stealth;Surveying;Survival;Swimming;Tactics;Tailor;Teamster;Telegraph;Thespian]
-let workSkillsPage5 = [Throwing;Tracking;Trading;Trapping;Veterinarian;Wainwright;Whip;Wrangling;Wordsmithing]
-let workSkills = [workSkillsPage1;workSkillsPage2;workSkillsPage3;workSkillsPage4;workSkillsPage5]
-    
+let workSkills = 
+    [Accounting;Artillerist;Artist;Assaying;Bartending;Blacksmithing;Bureaucracy;Carpentry;Chemistry;CivilEngineering;Cooking;CowHandling;
+    Dentistry;Entertainer;Explosives;Farming;FastDraw;Gambling;Gunsmithing;IndianContact;Law;Leadership;Linguistics;Literacy;
+    Locksmithing;Medicine;Orienteering;Photography;PocketPicking;Preaching;Prospecting;PublicSpeaking;Railroading;Riding;Roping;Saddlery;
+    Scouting;Sheepherding;Silversmithing;Stealth;Surveying;Survival;Swimming;Tactics;Tailor;Teamster;Telegraph;Thespian;
+    Throwing;Tracking;Trading;Trapping;Veterinarian;Wainwright;Whip;Wrangling;Wordsmithing]
+
+let getWorkSkill i = workSkills.Item(i)    
+
 let getWorkSkillName workSkill = 
     match workSkill with
     |Accounting -> "Accounting"
@@ -89,43 +93,20 @@ let getWorkSkillName workSkill =
     |Wrangling -> "Wrangling"
     |_ -> "Wordsmithing"
 
-let printWorkSkills = fun() -> workSkills |> List.iter (fun ws -> 
-    ws |> List.iter (fun s -> 
-        let workSkillName = getWorkSkillName s 
-        printfn "%s" workSkillName))    
+let printWorkSkills = fun() -> workSkills |> List.iteri (fun i ws ->
+    let workSkillName = getWorkSkillName ws 
+    printfn "%i - %s" (refIndex i) workSkillName)
 
 let initSkills total =
     match total with
     |total when total >= 27 && total <= 40 -> 10
     |total when total >= 41 && total <= 62 -> 8
-    |_ -> 6  
+    |_ -> 6
 
-//let workSkillsPage1 = 
-//    [
-//    "1-Accounting";"2-Artillerist";"3-Artist";"4-Assaying"; "5-Bartending";
-//    "6-Bureaucracy"; "7-Carpentry";"8-Chemistry";"9-Civil Engineering";"10-Cooking";
-//    "11-Cow Handling";"12-Dentistry";"13-Entertainer";"14-Explosives";"15-Farming"
-//    ]
-//let workSkillsPage2 = 
-//    [
-//    "16-Fast Draw";"17-Gambling";"18-Gunsmithing";"19-Indian Contact";"20-Law";
-//    "21-Leadership";"22-Linguistics";"23-Literacy";"24-Locksmithing";"25-Medicine";
-//    "26-Orienteering";"27-Pocket Picking";"28-Preaching";"29-Prospecting";"30-Public Speaking"
-//    ]
-//let workSkillsPage3 =
-//    [
-//    "31-Railroading";"32-Riding";"33-Roping";"34-Saddlery";"35-Scouting";
-//    "36-Sheepherding";"37-Silversmithing";"38-Blacksmithing";"39-Stealth";"40-Surveying";
-//    "41-Survival";"42-Swimming";"43-Tactics";"44-Tailoring";"45-Teamster"
-//    ]
-//let workSkillsPage4 =
-//    [
-//    "46-Telegraph";"47-Thespian";"48-Tracking";"49-Trading";"50-Trapping";
-//    "51-Veterinary Medicine";"52-Wainwright";"53-Wordsmithing";"54-Wrangling";"55-Throwing";
-//    "56-Whip";"57-Photography"
-//    ]
-//let workSkills = [workSkillsPage1;workSkillsPage2;workSkillsPage3;workSkillsPage4]
+//type BHSkill = WorkSkill of WorkSkills|WeaponSkill of WeaponSkills
 
-//let printWorkSkills = workSkills |> List.iter (fun ws -> ws |> List.iter (fun p -> printfn "%s" p ))    
-
-
+// let printBHSkillName skill = 
+//     match skill with
+//     | :? WorkSkills as work -> printWorkSkillName work
+//     | :? WeaponSkills as weapon -> printWeaponSkillName weapon
+//     |_ -> ignore
