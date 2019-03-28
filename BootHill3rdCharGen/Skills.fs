@@ -1,6 +1,7 @@
 ﻿module Skills
 
 open Utils
+open Dice
 
 type BHSkill = { Name:string; Description:string }
 
@@ -87,3 +88,5 @@ let initSkills total =
     |total when total >= 27 && total <= 40 -> 10
     |total when total >= 41 && total <= 62 -> 8
     |_ -> 6
+
+let calcWorkSkillScore = List.init 2 (fun _ -> rollDice 10) |> List.sum

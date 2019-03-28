@@ -3,7 +3,7 @@
 open Attributes
 open Skills
 
-type Skill = { Skill:BHSkill; BaseAttr:Attribute; Bonus:int }
+type Skill = { Skill:BHSkill; BaseAttr:BHAttr; Bonus:int }
 
 //type BHChar = { Name:string; Attributes:Attribute list; Skills:CharSkill list }
 
