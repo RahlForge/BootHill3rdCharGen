@@ -90,3 +90,5 @@ let initSkills total =
     |_ -> 6
 
 let calcWorkSkillScore = List.init 2 (fun _ -> rollDice 10) |> List.sum
+
+let getWorkSkill i = workSkills.Item(i)
