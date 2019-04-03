@@ -1,4 +1,4 @@
-﻿module Skills
+﻿module BHSkills
 
 open Utils
 open Dice
@@ -83,7 +83,7 @@ let printSkillName skill = printfn "%s" skill.Name
 
 let printSkillList skillList = skillList |> List.iteri (fun i s -> printfn "%i - %s" (refIndex i) s.Name)
 
-let initSkills total =
+let getSkillPickCount total =
     match total with
     |total when total >= 27 && total <= 40 -> 10
     |total when total >= 41 && total <= 62 -> 8
